@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ChooseCameraResolution{
+public class ChooseCameraResolutionTest{
 
 	private static final String TEST_PAGE = WebRTCUtils.BASE_URL + "src/content/getusermedia/resolution/";
 	// get selenium web driver

@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasicGetUserMediaDemo{
+public class BasicGetUserMediaTest{
 	
 	private static final String TEST_PAGE = WebRTCUtils.BASE_URL + "src/content/getusermedia/gum/";
 	

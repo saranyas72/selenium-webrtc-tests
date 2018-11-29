@@ -6,18 +6,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasicGetUserMediaTest{
+public class BasicGetUserMediaTest extends WebRTCUtils{
+	private static final String TEST_PAGE = WebRTCUtils.getBaseUrl() + "src/content/getusermedia/gum/";
+	// get selenium web driver
+	private static WebDriver driver;
 	
-	private static final String TEST_PAGE = WebRTCUtils.BASE_URL + "src/content/getusermedia/gum/";
-	
-	
-	public static void main(String[] args) {
-		
+
+	public static void main(String[] args) throws Exception {
+	try {
 		WebRTCUtils.setUp();
 		
 		// get selenium web driver
-		WebDriver driver = WebRTCUtils.getDriver();
-				
+		driver = WebRTCUtils.getDriver();
+		
+		test_videoElm();
+		
+		WebRTCUtils.tearDown();	
+			
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		} 
+	}
+	public static void test_videoElm() throws Exception {
+						
 		driver.navigate().to(TEST_PAGE);
 
 		// get video element
@@ -34,9 +46,9 @@ public class BasicGetUserMediaTest{
 		wait.until(ExpectedConditions.attributeToBe(videoElement, "readyState", "4"));
 		
 		// check if video is playing
-		Assert.assertNull(videoElement.getAttribute("paused")); // -- Verify video is playing and not paused.
-	
+			Assert.assertNull(videoElement.getAttribute("paused"));  // -- Verify video is playing and not paused.
 		
-		WebRTCUtils.tearDown();
-    }
+	}
+	
+	
 }

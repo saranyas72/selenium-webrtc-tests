@@ -11,12 +11,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ChooseCameraResolutionTest{
 
-	private static final String TEST_PAGE = WebRTCUtils.BASE_URL + "src/content/getusermedia/resolution/";
+	private static final String TEST_PAGE = WebRTCUtils.getBaseUrl() + "src/content/getusermedia/resolution/";
 	// get selenium web driver
 	private static WebDriver driver;
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		try {
+		
 		WebRTCUtils.setUp();
 		
 		// get selenium web driver
@@ -25,6 +27,11 @@ public class ChooseCameraResolutionTest{
 		verifyVideoResolutions();
 		
 		WebRTCUtils.tearDown();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception :"+e);
+		}
 	}
 	
 	public static void verifyVideoResolutions() {
